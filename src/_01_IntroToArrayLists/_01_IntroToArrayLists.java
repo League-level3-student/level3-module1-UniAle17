@@ -43,9 +43,7 @@ public class _01_IntroToArrayLists {
 			
 			String lists = list.get(j);
 			
-			if() {
-				
-			}
+			
 				
 		}
 		

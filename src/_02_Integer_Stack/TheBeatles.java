@@ -1,11 +1,11 @@
-package _01_IntroToArrayLists;
+package _02_Integer_Stack;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-public class _05_LongChipCompetition {
+public class TheBeatles {
 	/**
 	 * The Beatles are eating lunch and playing a game to see who has the longest
 	 * chip. (In England, french fries are called "chips".) * Find the Beatle with
@@ -15,9 +15,10 @@ public class _05_LongChipCompetition {
 	private ArrayList<Beatle> theBeatles = new ArrayList<Beatle>();
 
 	public static void main(String[] args) {
-		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
+		TheBeatles lcc = new TheBeatles();
 		lcc.initializeBeatles();
 		
+		String name = "";
 		double longestChip=0;
 		
 		for (int i = 0; i < lcc.theBeatles.size(); i++) {
@@ -32,11 +33,11 @@ public class _05_LongChipCompetition {
 				
 				if(c.getLength()>longestChip) {
 					
-					longestChip=c.getLength();
-					
+					longestChip = c.getLength();
+					name = b.getName();
 				}
 				
-				
+				JOptionPane.showMessageDialog(null, "The Beatle with the longest chip is " +name);
 						
 		}
 		
@@ -99,3 +100,5 @@ class Chip {
 		this.length = d;
 	}
 }
+
+
