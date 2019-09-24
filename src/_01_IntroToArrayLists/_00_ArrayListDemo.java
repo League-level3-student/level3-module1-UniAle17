@@ -29,7 +29,7 @@ public class _00_ArrayListDemo {
 		
 		System.out.println("Here's an ArrayList of Integers:\n");
 		//ArrayList of Integers
-		ArrayList<Integer> numbers = new ArrayList<Integer>();
+		ArrayList<Integer>numbers = new ArrayList<Integer>();
 		
 		numbers.add(7);
 		numbers.add(-24);
