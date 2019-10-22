@@ -62,7 +62,7 @@ public class _02_TextUndoRedo implements KeyListener{
 		
 		}
 		
-		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+		else if(e.getKeyCode()==KeyEvent.VK_ENTER) {
 			
 			char topChar = deletedChars.pop();
 			
@@ -70,6 +70,8 @@ public class _02_TextUndoRedo implements KeyListener{
 			
 			label.setText(l);
 		}
+		
+	
 		
 		else {
 			
