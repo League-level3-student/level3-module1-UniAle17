@@ -18,22 +18,24 @@ public class HangMan implements KeyListener{
 	JLabel lives = new JLabel();
 	
 	String recentWord;
-	
 	String displayedWord="";
+	Stack<String> guessWords;
 	
 	int numLives = 15;
+	int numDashes;
 	
 	HangMan(){
 		
 		frame.add(panel);
 		panel.add(label);
 		panel.add(lives);
+		lives.setText("Lives " + numLives);
 		
 		frame.setVisible(true);
 		frame.pack();
 		frame.addKeyListener(this);
 		
-		Stack<String> guessWords = new Stack<String>();
+		guessWords = new Stack<String>();
 		
 		
 		String words = JOptionPane.showInputDialog("Welcome to Hangman! "
@@ -64,13 +66,13 @@ public class HangMan implements KeyListener{
 			recentWord = guessWords.pop();
 			
 			
-			int numDashes = recentWord.length();
+		numDashes = recentWord.length();
 		
 			for (int i = 0; i < numDashes; i++) {
 				
 				
 				displayedWord+="_";
-			
+				
 				
 			}
 			
@@ -88,6 +90,28 @@ public class HangMan implements KeyListener{
 	}
 	
 	
+	void resetGame(){
+		
+		displayedWord= "";
+		
+		recentWord = guessWords.pop();
+		
+		for (int i = 0; i < numDashes; i++) {
+			
+			
+			displayedWord+="_";
+		
+			
+		}
+	
+		label.setText(displayedWord);
+		
+		frame.pack();
+		
+		numLives=15;
+		
+	}
+	
 	
 	
 	public static void main(String[] args) {
@@ -95,6 +119,7 @@ public class HangMan implements KeyListener{
 		HangMan hmRunner = new HangMan();
 		
 		
+
 	}
 
 
@@ -128,14 +153,16 @@ public class HangMan implements KeyListener{
 				
 				word+=displayedWord.charAt(i);
 				
-				letter = false;
+				
 				
 			}
 			
 			
+			
+			
 		}
 		
-		if(letter=true) {
+		if(letter==false) {
 
 		numLives = numLives-1;
 		
@@ -143,11 +170,24 @@ public class HangMan implements KeyListener{
 		
 		 displayedWord = word;
 		 
+		 if(displayedWord.equals(recentWord)) {
+				
+				resetGame();
+				
+				
+			}
+		 
 		 label.setText(displayedWord);
 		 
 		 lives.setText("Lives "+ numLives);
 		 
-
+		 
+		 if(numLives<1) {
+			 
+			 JOptionPane.showMessageDialog(null, "Aw Man! You ran out of lives. The word was " + recentWord);			 
+			 
+		 }
+		 
 		
 	}
 
