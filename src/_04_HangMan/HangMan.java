@@ -35,11 +35,21 @@ public class HangMan implements KeyListener{
 		frame.pack();
 		frame.addKeyListener(this);
 		
-		guessWords = new Stack<String>();
 		
+		startGame();
+		
+	}
+	
+	void startGame(){
+		
+		displayedWord="";
+		
+		guessWords = new Stack<String>();
 		
 		String words = JOptionPane.showInputDialog("Welcome to Hangman! "
 		 		+ "How many words would you like to attempt?");
+		
+	
 		
 		int numWords = Integer.parseInt(words);
 		
@@ -87,30 +97,59 @@ public class HangMan implements KeyListener{
 		}
 		
 		
+	
 	}
 	
 	
 	void resetGame(){
 		
+		if(guessWords.isEmpty()) {
+			
+			int result = JOptionPane.showConfirmDialog(null, "Nice! You guessed all the words! Would you like to play again?");
+			
+			if(result==JOptionPane.NO_OPTION) {
+				
+			System.exit(0);
+			
+			
+		}
+			
+			if(result==JOptionPane.YES_OPTION) {
+				
+				startGame();
+				
+			}
+			
+		}
+			
+			
+		
+		else {
 		displayedWord= "";
 		
 		recentWord = guessWords.pop();
+		
+		numDashes = recentWord.length();
 		
 		for (int i = 0; i < numDashes; i++) {
 			
 			
 			displayedWord+="_";
+			
+			
 		
 			
 		}
 	
 		label.setText(displayedWord);
 		
-		frame.pack();
-		
 		numLives=15;
 		
+		frame.pack();
 	}
+	
+	}
+	
 	
 	
 	
@@ -137,6 +176,8 @@ public class HangMan implements KeyListener{
 		String word = "";
 		
 		boolean letter = false;
+		
+		System.out.println(recentWord);
 		
 		for (int i = 0; i < recentWord.length(); i++) {
 			
@@ -173,9 +214,12 @@ public class HangMan implements KeyListener{
 		 if(displayedWord.equals(recentWord)) {
 				
 				resetGame();
+				JOptionPane.showMessageDialog(null, "Good Job!");
 				
 				
 			}
+		 
+		 
 		 
 		 label.setText(displayedWord);
 		 
