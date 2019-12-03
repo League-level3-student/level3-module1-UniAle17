@@ -3,10 +3,18 @@ package _05_String_Integer_Pair;
 public class StringIntegerPair {
 	//1. create a private array of Strings called keys. Don't initialize it.
 
+	private String [] keys;
+	private int [] values;
+	
 	//2. create a private array of integers called values.
 	
 	StringIntegerPair(){
+			
 		//3. initialize both member arrays to a length of 0
+		
+		keys= new String [0];
+		values= new int[0];
+		
 	}
 	
 	// 4. Complete the steps in the put method
@@ -15,22 +23,62 @@ public class StringIntegerPair {
 		//   the passed in String, set the value at that location to the
 		//   passed in value and return from the method.
 		
+		
+		for (int i = 0; i < keys.length; i++) {
+			if(keys[i]==key) {
+				values[i]=value;
+			}
+			
+			
+		}
+		
+		
 		//B. create a String array that is one element longer than the keys
+		
+		String [] cheese = new String [keys.length+1];
 		
 		//C. create an integer array that is one element longer than values
 		
+		int [] crackers = new int[values.length-1];
+		
 		//D. set the last element of the new String array to the passed in key
+		
+		cheese[cheese.length-1]=key;
 		
 		//E. set the last element of the new int array to the passed in value
 		
+		crackers[crackers.length-1]=value;
+		
 		//F. iterate through the keys and values and copy the elements to the new arrays
 		
+		for (int i = 0; i < keys.length; i++) {
+			
+			keys[i]=cheese[i];
+			
+		}
+		
+		for (int i = 0; i < values.length; i++) {
+			
+			values[i]=crackers[i];
+			
+		}
+		
 		//G. Set the keys and values arrays equal to the new arrays created in steps B and C.
+		
+		keys = cheese;
+		values= crackers;
+		
 	}
 	
 	//5. Complete the method so it returns the value located at the passed in key.
 	//   If the key does not exist, return Integer.MIN_VALUE.
 	public int get(String key) {
+	
+		for (int i = 0; i < keys.length; i++) {
+			
+		}
+		
+		
 		return 0;
 	}
 	
