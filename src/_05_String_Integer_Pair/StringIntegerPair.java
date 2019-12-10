@@ -27,6 +27,7 @@ public class StringIntegerPair {
 		for (int i = 0; i < keys.length; i++) {
 			if(keys[i]==key) {
 				values[i]=value;
+				return;
 			}
 			
 			
@@ -39,7 +40,7 @@ public class StringIntegerPair {
 		
 		//C. create an integer array that is one element longer than values
 		
-		int [] crackers = new int[values.length-1];
+		int [] crackers = new int[values.length+1];
 		
 		//D. set the last element of the new String array to the passed in key
 		
@@ -53,13 +54,13 @@ public class StringIntegerPair {
 		
 		for (int i = 0; i < keys.length; i++) {
 			
-			keys[i]=cheese[i];
+			cheese[i]=keys[i];
 			
 		}
 		
 		for (int i = 0; i < values.length; i++) {
 			
-			values[i]=crackers[i];
+			crackers[i]=values[i];
 			
 		}
 		
@@ -76,33 +77,66 @@ public class StringIntegerPair {
 	
 		for (int i = 0; i < keys.length; i++) {
 			
+			
+			
+			if(keys[i]==key){
+				
+				return values[i];
+				
+			}
 		}
 		
+		return Integer.MIN_VALUE;
 		
-		return 0;
 	}
 	
 	//6. Complete the containsKey method so that it returns true if the
 	//   passed in keys is contained in the keys array
 	public boolean containsKey(String key) {
 		
+		for (int i = 0; i < keys.length; i++) {
+			
+			if(keys[i].equals(key)) {
+				
+				return true;
+				
+			}
+			
+		}
+		
 		return false;
+		
+		
 	}
 	
 	//7. Complete the containsValue method so that it returns true if the
 	//   passed in value is contained in the values array
 	public boolean containsValue(int value) {
 		
+		for (int i = 0; i < values.length; i++) {
+			
+			if(values[i]==value) {
+				
+				return true;
+				
+			}
+			
+		}
+		
 		return false;
 	}
 	
 	//8. Complete the getKeysMethod so it returns the keys as an array
 	public String[] getKeys() {
-		return null;
+		
+		return keys;
 	}
 	
 	//9. Complete the getValues so it returns the values as an array
 	public int[] getValues() {
-		return null;
+		
+		return values;
+	
+		
 	}
 }
