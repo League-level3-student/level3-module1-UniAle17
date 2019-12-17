@@ -90,6 +90,11 @@ public class _02_LogSearch implements ActionListener {
 			
 			String IDNumber = JOptionPane.showInputDialog("Please enter your ID number");
 			String name = JOptionPane.showInputDialog("Please enter you name");
+			
+			int IDnum = Integer.parseInt(IDNumber);
+			
+			project.put(IDnum, name);
+			
 		}
 		
 	}
