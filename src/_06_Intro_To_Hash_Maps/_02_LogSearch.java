@@ -67,7 +67,7 @@ public class _02_LogSearch implements ActionListener {
 		
 		button1.setText("Add Entry");
 		button2.setText("Search by ID");
-		button3.setText("Remove Entry");
+		button3.setText("View List");
 		
 		frame.setVisible(true);
 		frame.pack();
@@ -96,6 +96,39 @@ public class _02_LogSearch implements ActionListener {
 			project.put(IDnum, name);
 			
 		}
+		
+		if(e.getSource()==button2) {
+			
+			String IDNumberSearch = JOptionPane.showInputDialog("Please enter ID number");
+			int IDNumSearch = Integer.parseInt(IDNumberSearch);
+			
+			for (Integer i : project.keySet()){
+				
+				if(IDNumSearch==i) {
+					
+					JOptionPane.showMessageDialog(null, project.get(i));
+					
+				}
+				
+			}
+			
+		}
+		
+		if(e.getSource()==button3) {
+			
+			String allValues = "";
+			
+			for(Integer i : project.keySet()) {
+				
+				allValues += i+ " "+ project.get(i);
+				
+			}
+			
+			JOptionPane.showMessageDialog(null, allValues);
+			
+			
+		}
+		
 		
 	}
 
